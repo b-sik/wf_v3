@@ -1,4 +1,6 @@
-{{-- this is where I want to build the site --}}
+@php
 
-@php the_content() @endphp
-<p> this is the content-page</p>
+@endphp
+
+@include('partials.latest-post')
+@include('partials.featured-video')
