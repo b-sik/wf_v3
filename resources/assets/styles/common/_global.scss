@@ -1,3 +1,13 @@
 p {
   margin-bottom: 0 !important;
 }
+
+.vh-60 {
+  height: 60vh;
+}
+
+.vh-lg-95 {
+  @include media-breakpoint-up(lg) {
+    height: 95vh;
+  }
+}

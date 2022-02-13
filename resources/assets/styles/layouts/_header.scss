@@ -1,9 +1,0 @@
-.vh-50 {
-  height: 50vh;
-}
-
-.vh-lg-95 {
-  @include media-breakpoint-up(lg) {
-    height: 95vh;
-  }
-}

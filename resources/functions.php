@@ -9,13 +9,14 @@ use Roots\Sage\Container;
 
 /**
  * Helper function for prettying up errors
+ *
  * @param string $message
  * @param string $subtitle
  * @param string $title
  */
 $sage_error = function ($message, $subtitle = '', $title = '') {
-    $title = $title ?: __('Sage &rsaquo; Error', 'sage');
-    $footer = '<a href="https://roots.io/sage/docs/">roots.io/sage/docs/</a>';
+    $title   = $title ?: __('Sage &rsaquo; Error', 'sage');
+    $footer  = '<a href="https://roots.io/sage/docs/">roots.io/sage/docs/</a>';
     $message = "<h1>{$title}<br><small>{$subtitle}</small></h1><p>{$message}</p><p>{$footer}</p>";
     wp_die($message, $title);
 };
@@ -53,12 +54,15 @@ if (!class_exists('Roots\\Sage\\Container')) {
  * The mapped array determines the code library included in your theme.
  * Add or remove files to the array as needed. Supports child theme overrides.
  */
-array_map(function ($file) use ($sage_error) {
-    $file = "../app/{$file}.php";
-    if (!locate_template($file, true, true)) {
-        $sage_error(sprintf(__('Error locating <code>%s</code> for inclusion.', 'sage'), $file), 'File not found');
-    }
-}, ['helpers', 'setup', 'filters', 'admin']);
+array_map(
+    function ($file) use ($sage_error) {
+        $file = "../app/{$file}.php";
+        if (!locate_template($file, true, true)) {
+            $sage_error(sprintf(__('Error locating <code>%s</code> for inclusion.', 'sage'), $file), 'File not found');
+        }
+    },
+    array('helpers', 'setup', 'filters', 'admin')
+);
 
 /**
  * Here's what's happening with these hooks:
@@ -79,17 +83,23 @@ array_map(function ($file) use ($sage_error) {
  */
 array_map(
     'add_filter',
-    ['theme_file_path', 'theme_file_uri', 'parent_theme_file_path', 'parent_theme_file_uri'],
+    array('theme_file_path', 'theme_file_uri', 'parent_theme_file_path', 'parent_theme_file_uri'),
     array_fill(0, 4, 'dirname')
 );
 Container::getInstance()
-    ->bindIf('config', function () {
-        return new Config([
-            'assets' => require dirname(__DIR__) . '/config/assets.php',
-            'theme' => require dirname(__DIR__) . '/config/theme.php',
-            'view' => require dirname(__DIR__) . '/config/view.php',
-        ]);
-    }, true);
+    ->bindIf(
+        'config',
+        function () {
+            return new Config(
+                array(
+                    'assets' => require dirname(__DIR__) . '/config/assets.php',
+                    'theme'  => require dirname(__DIR__) . '/config/theme.php',
+                    'view'   => require dirname(__DIR__) . '/config/view.php',
+                )
+            );
+        },
+        true
+    );
 
 
 /**
@@ -105,7 +115,6 @@ add_action('after_setup_theme', 'register_navwalker');
 // Register Shows Post Type
 function register_show_post_type()
 {
-
     $labels = array(
         'name'                  => _x('Shows', 'Post Type General Name', 'westferry'),
         'singular_name'         => _x('Show', 'Post Type Singular Name', 'westferry'),
@@ -135,17 +144,73 @@ function register_show_post_type()
         'items_list_navigation' => __('Items list navigation', 'westferry'),
         'filter_items_list'     => __('Filter items list', 'westferry'),
     );
+    $args   = array(
+        'label'               => __('Shows', 'westferry'),
+        'description'         => __('Shows', 'westferry'),
+        'labels'              => $labels,
+        'supports'            => array('title', 'thumbnail', 'custom-fields'),
+        'hierarchical'        => false,
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => true,
+        'menu_position'       => 5,
+        'menu_icon'           => 'dashicons-calendar-alt',
+        'show_in_admin_bar'   => true,
+        'show_in_nav_menus'   => true,
+        'can_export'          => true,
+        'has_archive'         => true,
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'page',
+    );
+    register_post_type('show', $args);
+}
+add_action('init', 'register_show_post_type', 0);
+
+// Register Album Post Type
+function register_album_post_type()
+{
+
+    $labels = array(
+        'name'                  => _x('Albums', 'Post Type General Name', 'westferry'),
+        'singular_name'         => _x('Album', 'Post Type Singular Name', 'westferry'),
+        'menu_name'             => __('Albums', 'westferry'),
+        'name_admin_bar'        => __('Albums', 'westferry'),
+        'archives'              => __('Album Archives', 'westferry'),
+        'attributes'            => __('Album Attributes', 'westferry'),
+        'parent_item_colon'     => __('Parent Album:', 'westferry'),
+        'all_items'             => __('All Albums', 'westferry'),
+        'add_new_item'          => __('Add New Album', 'westferry'),
+        'add_new'               => __('Add New', 'westferry'),
+        'new_item'              => __('New Album', 'westferry'),
+        'edit_item'             => __('Edit Album', 'westferry'),
+        'update_item'           => __('Update Album', 'westferry'),
+        'view_item'             => __('View Album', 'westferry'),
+        'view_items'            => __('View Albums', 'westferry'),
+        'search_items'          => __('Search Album', 'westferry'),
+        'not_found'             => __('Not found', 'westferry'),
+        'not_found_in_trash'    => __('Not found in Trash', 'westferry'),
+        'featured_image'        => __('Featured Image', 'westferry'),
+        'set_featured_image'    => __('Set featured image', 'westferry'),
+        'remove_featured_image' => __('Remove featured image', 'westferry'),
+        'use_featured_image'    => __('Use as featured image', 'westferry'),
+        'insert_into_item'      => __('Insert into item', 'westferry'),
+        'uploaded_to_this_item' => __('Uploaded to this item', 'westferry'),
+        'items_list'            => __('Items list', 'westferry'),
+        'items_list_navigation' => __('Items list navigation', 'westferry'),
+        'filter_items_list'     => __('Filter items list', 'westferry'),
+    );
     $args = array(
-        'label'                 => __('Shows', 'westferry'),
-        'description'           => __('Shows', 'westferry'),
+        'label'                 => __('Album', 'westferry'),
+        'description'           => __('Albums', 'westferry'),
         'labels'                => $labels,
-        'supports'              => array('title', 'editor', 'thumbnail', 'custom-fields'),
+        'supports'              => array('title', 'thumbnail', 'custom-fields'),
         'hierarchical'          => false,
         'public'                => true,
         'show_ui'               => true,
         'show_in_menu'          => true,
-        'menu_position'         => 5,
-        'menu_icon'             => 'dashicons-calendar-alt',
+        'menu_position'         => 6,
+        'menu_icon'             => 'dashicons-album',
         'show_in_admin_bar'     => true,
         'show_in_nav_menus'     => true,
         'can_export'            => true,
@@ -154,246 +219,6 @@ function register_show_post_type()
         'publicly_queryable'    => true,
         'capability_type'       => 'page',
     );
-    register_post_type('show', $args);
+    register_post_type('album', $args);
 }
-add_action('init', 'register_show_post_type', 0);
-
-if (function_exists('acf_add_local_field_group')) :
-
-    acf_add_local_field_group(array(
-        'key' => 'group_62043549b32a6',
-        'title' => 'Branding and Social',
-        'fields' => array(
-            array(
-                'key' => 'field_6204356eeebf7',
-                'label' => 'Band name',
-                'name' => 'band_name',
-                'type' => 'text',
-                'instructions' => '',
-                'required' => 0,
-                'conditional_logic' => 0,
-                'wrapper' => array(
-                    'width' => '',
-                    'class' => '',
-                    'id' => '',
-                ),
-                'default_value' => '',
-                'placeholder' => '',
-                'prepend' => '',
-                'append' => '',
-                'maxlength' => '',
-            ),
-        ),
-        'location' => array(
-            array(
-                array(
-                    'param' => 'page',
-                    'operator' => '==',
-                    'value' => '5',
-                ),
-            ),
-        ),
-        'menu_order' => 0,
-        'position' => 'normal',
-        'style' => 'default',
-        'label_placement' => 'top',
-        'instruction_placement' => 'label',
-        'hide_on_screen' => '',
-        'active' => true,
-        'description' => '',
-        'show_in_rest' => 0,
-    ));
-
-    acf_add_local_field_group(array(
-        'key' => 'group_62055b7ed73eb',
-        'title' => 'Featured Video',
-        'fields' => array(
-            array(
-                'key' => 'field_62055bab554c7',
-                'label' => 'Featured Video',
-                'name' => 'featured_video',
-                'type' => 'oembed',
-                'instructions' => '',
-                'required' => 0,
-                'conditional_logic' => 0,
-                'wrapper' => array(
-                    'width' => '',
-                    'class' => '',
-                    'id' => '',
-                ),
-                'width' => '',
-                'height' => '',
-            ),
-            array(
-                'key' => 'field_62056a233e648',
-                'label' => 'Description',
-                'name' => 'featured_video_desc',
-                'type' => 'text',
-                'instructions' => '',
-                'required' => 0,
-                'conditional_logic' => 0,
-                'wrapper' => array(
-                    'width' => '',
-                    'class' => '',
-                    'id' => '',
-                ),
-                'default_value' => '',
-                'placeholder' => '',
-                'prepend' => '',
-                'append' => '',
-                'maxlength' => '',
-            ),
-        ),
-        'location' => array(
-            array(
-                array(
-                    'param' => 'page',
-                    'operator' => '==',
-                    'value' => '5',
-                ),
-            ),
-        ),
-        'menu_order' => 0,
-        'position' => 'normal',
-        'style' => 'default',
-        'label_placement' => 'top',
-        'instruction_placement' => 'label',
-        'hide_on_screen' => '',
-        'active' => true,
-        'description' => '',
-        'show_in_rest' => 0,
-    ));
-
-    acf_add_local_field_group(array(
-        'key' => 'group_6205849248fe8',
-        'title' => 'Shows',
-        'fields' => array(
-            array(
-                'key' => 'field_6205849ae8664',
-                'label' => 'Show',
-                'name' => 'show',
-                'type' => 'group',
-                'instructions' => '',
-                'required' => 0,
-                'conditional_logic' => 0,
-                'wrapper' => array(
-                    'width' => '',
-                    'class' => '',
-                    'id' => '',
-                ),
-                'layout' => 'block',
-                'sub_fields' => array(
-                    array(
-                        'key' => 'field_620584bde8665',
-                        'label' => 'City',
-                        'name' => 'city',
-                        'type' => 'text',
-                        'instructions' => '',
-                        'required' => 0,
-                        'conditional_logic' => 0,
-                        'wrapper' => array(
-                            'width' => '',
-                            'class' => '',
-                            'id' => '',
-                        ),
-                        'default_value' => '',
-                        'placeholder' => '',
-                        'prepend' => '',
-                        'append' => '',
-                        'maxlength' => '',
-                    ),
-                    array(
-                        'key' => 'field_62058517e8668',
-                        'label' => 'Venue',
-                        'name' => 'venue',
-                        'type' => 'text',
-                        'instructions' => '',
-                        'required' => 0,
-                        'conditional_logic' => 0,
-                        'wrapper' => array(
-                            'width' => '',
-                            'class' => '',
-                            'id' => '',
-                        ),
-                        'default_value' => '',
-                        'placeholder' => '',
-                        'prepend' => '',
-                        'append' => '',
-                        'maxlength' => '',
-                    ),
-                    array(
-                        'key' => 'field_620584d4e8666',
-                        'label' => 'Date and Time',
-                        'name' => 'date_time',
-                        'type' => 'date_time_picker',
-                        'instructions' => '',
-                        'required' => 0,
-                        'conditional_logic' => 0,
-                        'wrapper' => array(
-                            'width' => '',
-                            'class' => '',
-                            'id' => '',
-                        ),
-                        'display_format' => 'F j, Y g:i a',
-                        'return_format' => 'Ymd',
-                        'first_day' => 1,
-                    ),
-                    array(
-                        'key' => 'field_62058507e8667',
-                        'label' => 'Supporting Acts',
-                        'name' => 'support',
-                        'type' => 'text',
-                        'instructions' => '',
-                        'required' => 0,
-                        'conditional_logic' => 0,
-                        'wrapper' => array(
-                            'width' => '',
-                            'class' => '',
-                            'id' => '',
-                        ),
-                        'default_value' => '',
-                        'placeholder' => '',
-                        'prepend' => '',
-                        'append' => '',
-                        'maxlength' => '',
-                    ),
-                    array(
-                        'key' => 'field_62058564e8669',
-                        'label' => 'Event Page',
-                        'name' => 'url',
-                        'type' => 'url',
-                        'instructions' => '',
-                        'required' => 0,
-                        'conditional_logic' => 0,
-                        'wrapper' => array(
-                            'width' => '',
-                            'class' => '',
-                            'id' => '',
-                        ),
-                        'default_value' => '',
-                        'placeholder' => '',
-                    ),
-                ),
-            ),
-        ),
-        'location' => array(
-            array(
-                array(
-                    'param' => 'post_type',
-                    'operator' => '==',
-                    'value' => 'show',
-                ),
-            ),
-        ),
-        'menu_order' => 0,
-        'position' => 'normal',
-        'style' => 'default',
-        'label_placement' => 'top',
-        'instruction_placement' => 'label',
-        'hide_on_screen' => '',
-        'active' => true,
-        'description' => '',
-        'show_in_rest' => 0,
-    ));
-
-endif;
+add_action('init', 'register_album_post_type', 0);
