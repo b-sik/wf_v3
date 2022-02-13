@@ -26,6 +26,6 @@ $featured_img_url = get_the_post_thumbnail_url($home_id);
         {!! wp_nav_menu($menu_args) !!}
     </div>
 </nav>
-<header class="container-fluid vh-60 mb-5"
+<header class="container-fluid vh-60 mb-3"
     style="background-image:url({{ $featured_img_url }});background-position:center;background-size:cover;">
 </header>

@@ -7,8 +7,8 @@ $image = wp_get_attachment_image_src(get_post_thumbnail_id($page->ID), 'single-p
 <div class="container about-wrapper">
     <h3>About</h3>
     <div class="row">
-        <div class="col-6"><img src="{{ $image[0] }}" alt="" class="img-fluid"></div>
-        <div class="col-6">{!! $content !!}</div>
+        <div class="col-12 col-lg-6"><img src="{{ $image[0] }}" alt="" class="img-fluid my-3"></div>
+        <div class="col-12 col-lg-6">{!! $content !!}</div>
     </div>
 
 </div>

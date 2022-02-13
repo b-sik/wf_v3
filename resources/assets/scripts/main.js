@@ -10,6 +10,15 @@ import common from './routes/common';
 import home from './routes/home';
 import aboutUs from './routes/about';
 
+import { library, dom } from '@fortawesome/fontawesome-svg-core';
+import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+
+// add the imported icons to the library
+library.add(faArrowLeft, faArrowRight);
+
+// tell FontAwesome to watch the DOM and add the SVGs when it detects icon markup
+dom.watch();
+
 /** Populate Router instance with DOM routes */
 const routes = new Router({
   // All pages

@@ -11,15 +11,15 @@ $title = get_the_title();
 $artwork_url = get_the_post_thumbnail_url();
 @endphp
 
-<div class="card mb-3" style="max-width:320px;">
+<div class="card mb-3 mx">
     <div class="card-img-top">
         <img class="img-fluid" src="{{ $artwork_url }}" alt="Card image cap">
     </div>
 
     <div class="card-body pb-0">
-        <h5 class="card-title mb-0">{{ $title }}</h5>
+        <h5 class="card-title mb-0">{{ $title }}<small class="card-text text-muted mb-0">&nbsp;&#8212;&nbsp;{{ $description }}</small></h5>
         <p class="card-text mb-3"><small
-                class="text-muted">{{ $year }}&nbsp;&#8212;&nbsp;{{ $description }}&nbsp;&#8212;&nbsp;{{ $label }}</small>
+                class="text-muted">{{ $year }}&nbsp;&#8212;&nbsp;{{ $label }}</small>
         </p>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
