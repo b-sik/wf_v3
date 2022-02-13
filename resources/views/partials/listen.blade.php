@@ -11,47 +11,58 @@ $albums_args = [
 $query = new WP_Query($albums_args);
 @endphp
 
-<div class="container listen-wrapper py-3">
-    <h3 class="pb-3">Listen</h3>
+<section class="container listen-wrapper py-3">
+    <h3>Listen</h3>
 
-    <div class="row justify-content-center">
-        <div class="col-lg-10 col-md-12">
-            <div class="card-deck">
+    <div class="carousel slide" data-interval="false" id="postsCarousel">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-md-right lead">
+                    <a class="btn btn-outline-secondary prev" href="" title="go back"><i
+                            class="fa fa-lg fa-chevron-left"></i>back</a>
+                    <a class="btn btn-outline-secondary next" href="" title="more"><i
+                            class="fa fa-lg fa-chevron-right"></i>fowards</a>
+                </div>
+            </div>
+        </div>
 
-                @while ($query->have_posts())
-                    @php $query->the_post() @endphp
+        <div class="container mt-3">
+            <div class="row mt-0">
+                <div class="col-12">
+                    <div class="carousel-inner">
+                        @php
+                            $card_count = 0;
+                        @endphp
+
+                        @while ($query->have_posts())
+                            @php $query->the_post() @endphp
+
+                            @php
+                                $current_post = $query->current_post;
+                                $total_posts = $query->found_posts;
+                            @endphp
+
+                            @if ($current_post % 3 === 0)
+                                <div class="card-deck carousel-item {{ $current_post === 0 ? 'active' : '' }} ">
+                            @endif
+
+                            @include('partials.card')
+
+                            @php
+                                $card_count++;
+                            @endphp
+
+                            @if ($card_count === 3 || $current_post === $total_posts)
+                    </div> <!-- .card-deck -->
                     @php
-                        $album = get_fields();
-                        
-                        $description = $album['description'];
-                        $year = $album['year'];
-                        $label = $album['label'];
-                        $bandcamp = $album['bandcamp'];
-                        $bandcamp_track_id = $album['bandcamp_track_id'];
-                        $bandcamp_id_type = $album['bandcamp_id_type'];
-                        
-                        $title = get_the_title();
-                        $artwork_url = get_the_post_thumbnail_url();
+                        $card_count = 0;
                     @endphp
+                    @endif
 
-                    <div class="card mb-3">
-                        <img class="card-img-top" src="{{ $artwork_url }}" alt="Card image cap">
-                        <div class="card-body pb-0">
-                            <h5 class="card-title mb-0">{{ $title }}</h5>
-                            <p class="card-text mb-3"><small
-                                    class="text-muted">{{ $year }}&nbsp;&#8212;&nbsp;{{ $description }}&nbsp;&#8212;&nbsp;{{ $label }}</small>
-                            </p>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">
-                                    <iframe style="border: 0; width: 100%; height: 42px;"
-                                        src="https://bandcamp.com/EmbeddedPlayer/{{ $bandcamp_id_type }}={{ $bandcamp_track_id }}/size=small/bgcol=ffffff/linkcol=0687f5/transparent=true/"
-                                        seamless><a href="{{ $bandcamp }}">{{ $title }}</a></iframe>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                @endwhile
+                    @endwhile
+                </div>
             </div>
         </div>
     </div>
-</div>
+    </div>
+</section>

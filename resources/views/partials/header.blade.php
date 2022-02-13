@@ -16,7 +16,7 @@ $band_name = get_field('band_name', $home_id);
 $featured_img_url = get_the_post_thumbnail_url($home_id);
 @endphp
 
-<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
         <a href="#" class="h1">{{ $band_name }}</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"

@@ -1,11 +1,4 @@
-.card {
-  @include media-breakpoint-up(md) {
-    flex: 45% !important;
-    max-width: 45% !important;
-  }
-
-  @include media-breakpoint-down(sm) {
-    flex: 100% !important;
-    max-width: 100% !important;
-  }
+.card-deck.active {
+  display: flex;
+  flex-direction: row;
 }

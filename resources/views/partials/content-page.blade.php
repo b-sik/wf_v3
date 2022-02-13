@@ -2,3 +2,4 @@
 @include('partials.featured-video')
 @include('partials.shows')
 @include('partials.listen')
+@include('partials.about')
