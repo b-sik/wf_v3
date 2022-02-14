@@ -1,3 +1,11 @@
+section.container {
+  @extend .py-4;
+}
+
+h3 {
+  @extend .py-2;
+}
+
 .embed-container iframe,
 .embed-container object,
 .embed-container embed {

@@ -6,7 +6,7 @@ $caption = wp_get_attachment_caption(get_post_thumbnail_id($page->ID));
 @endphp
 
 <section id="about" class="container about-wrapper">
-    <h3 class="mb-3">About</h3>
+    <h3>About</h3>
 
     <div class="row justify-content-center">
         <div class="col-md-6 d-flex flex-column align-items-center justify-content-center ">

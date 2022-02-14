@@ -1,5 +1,5 @@
 @php
-$home_id = 5;
+$home = get_page_by_title('home');
 
 $menu_args = [
     'theme_location' => 'primary_navigation',
@@ -12,10 +12,10 @@ $menu_args = [
     'walker' => new WP_Bootstrap_Navwalker(),
 ];
 
-$band_name = get_field('band_name', $home_id);
-$featured_img_url = get_the_post_thumbnail_url($home_id);
-$streaming_services = get_field('streaming_services', $home_id);
-$socials = get_field('social_media', $home_id);
+$band_name = get_field('band_name', $home->ID);
+$featured_img_url = get_the_post_thumbnail_url($home->ID);
+$streaming_services = get_field('streaming_services', $home->ID);
+$socials = get_field('social_media', $home->ID);
 @endphp
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">

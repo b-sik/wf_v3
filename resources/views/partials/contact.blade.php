@@ -1,20 +1,20 @@
 @php
-$home_id = 5;
+$home = get_page_by_title('home');
+$socials = get_field('social_media', $home->ID);
 
-$socials = get_field('social_media', $home_id);
+$contact = get_page_by_title('contact');
+$email = explode('@', get_field('email', $contact->ID));
 @endphp
 
-<section id="contact" class="container contact-wrapper py-3">
-    <h3 class="pb-3 text-center">Contact</h3>
+<section id="contact" class="container contact-wrapper my-5">
+    <h3 class="text-center">Contact</h3>
 
-    <div class="row justify-content-center">
-        <div class="col-12">
-            <a class="h1 d-block text-center" href="mailto:westferrymusic@gmail.com">
-                <span class="d-inline-block">westferrymusic</span><span class="d-inline-block">@gmail.com</span>
+    <div class="row">
+        <div class="col-12 d-flex justify-content-center">
+            <a class="text-center btn btn-primary" href="mailto:westferrymusic@gmail.com">
+                <span class="d-inline-block h1">{{ $email[0] }}</span><span
+                    class="d-inline-block h1">&commat;{{ $email[1] }}</span>
             </a>
-        </div>
-        <div class="col-2 d-flex justify-content-around my-3">
-            @include('partials.icon-group', ['icons' => $socials, 'anchor_classes' => ''])
         </div>
     </div>
 </section>

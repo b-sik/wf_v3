@@ -19,15 +19,15 @@ $shows_args = [
 $query = new WP_Query($shows_args);
 @endphp
 
-<section id="shows" class="container shows-wrapper py-3">
-    <h3 class="pb-3">Shows</h3>
+<section id="shows" class="container shows-wrapper">
+    <h3>Shows</h3>
 
     @while ($query->have_posts())
         @php $query->the_post() @endphp
         @php
             $fields = get_fields();
             $show = $fields['show'];
-            
+
             $city = $show['city'];
             $venue = $show['venue'];
             $date = date('m.d.y', strtotime($show['date']));

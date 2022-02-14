@@ -11,8 +11,8 @@ $albums_args = [
 $query = new WP_Query($albums_args);
 @endphp
 
-<section id="listen" class="container listen-wrapper py-3">
-    <h3 class="mb-3">Listen</h3>
+<section id="listen" class="container listen-wrapper">
+    <h3>Listen</h3>
 
     {{-- desktop --}}
     @include('partials.carousel')

@@ -1,11 +1,14 @@
 @php
-$video = get_field('featured_video', 5);
-$video_desc = get_field('featured_video_desc', 5);
+$home = get_page_by_title('home');
+$video = get_field('featured_video', $home->ID);
+$video_desc = get_field('featured_video_desc', $home->ID);
 @endphp
 
-<section id="featured_video" class="container py-3 d-flex flex-column align-items-center">
-    <div class="embed-container my-3">
-        {!! $video !!}
+<section id="featured_video" class="container d-flex flex-column align-items-center">
+    <div class="card">
+        <div class="embed-container">
+            {!! $video !!}
+        </div>
+        <small class="text-center card-text d-block my-3"><em class="text-dark">{!! $video_desc !!}</em></small>
     </div>
-    <small class="text-center d-block"><em>{!! $video_desc !!}</em></small>
 </section>
