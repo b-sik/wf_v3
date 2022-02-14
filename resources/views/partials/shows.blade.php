@@ -19,7 +19,7 @@ $shows_args = [
 $query = new WP_Query($shows_args);
 @endphp
 
-<div class="container shows-wrapper py-3">
+<section id="shows" class="container shows-wrapper py-3">
     <h3 class="pb-3">Shows</h3>
 
     @while ($query->have_posts())
@@ -58,4 +58,4 @@ $query = new WP_Query($shows_args);
             </div>
         </div>
     @endwhile
-</div>
+</section>

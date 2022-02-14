@@ -1,5 +1,6 @@
-@include('partials.latest-post')
 @include('partials.featured-video')
+@include('partials.latest-post')
 @include('partials.shows')
 @include('partials.listen')
 @include('partials.about')
+@include('partials.contact')

@@ -2,7 +2,7 @@
 import 'jquery';
 
 // Import everything from autoload
-import './autoload/**/*'
+import './autoload/**/*';
 
 // import local dependencies
 import Router from './util/Router';
@@ -12,9 +12,24 @@ import aboutUs from './routes/about';
 
 import { library, dom } from '@fortawesome/fontawesome-svg-core';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import {
+  faSpotify,
+  faApple,
+  faBandcamp,
+  faFacebook,
+  faInstagram,
+} from '@fortawesome/free-brands-svg-icons';
 
 // add the imported icons to the library
-library.add(faArrowLeft, faArrowRight);
+library.add(
+  faArrowLeft,
+  faArrowRight,
+  faSpotify,
+  faApple,
+  faBandcamp,
+  faFacebook,
+  faInstagram
+);
 
 // tell FontAwesome to watch the DOM and add the SVGs when it detects icon markup
 dom.watch();

@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 p {
   margin-bottom: 0 !important;
 }
@@ -10,4 +14,8 @@ p {
   @include media-breakpoint-up(lg) {
     height: 95vh;
   }
+}
+
+caption {
+  font-size: 0.75rem;
 }

@@ -11,7 +11,7 @@ $albums_args = [
 $query = new WP_Query($albums_args);
 @endphp
 
-<section class="container listen-wrapper py-3">
+<section id="listen" class="container listen-wrapper py-3">
     <h3 class="mb-3">Listen</h3>
 
     {{-- desktop --}}
@@ -19,5 +19,4 @@ $query = new WP_Query($albums_args);
 
     {{-- mobile & tablet --}}
     @include('partials.album-collapse')
-
 </section>

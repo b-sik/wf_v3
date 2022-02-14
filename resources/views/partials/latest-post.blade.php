@@ -11,11 +11,13 @@ $latest_post_args = [
 $query = new WP_Query($latest_post_args);
 @endphp
 
-@while ($query->have_posts())
-    @php $query->the_post() @endphp
-    <article {!! post_class('container my-3') !!}>
-        <h3>News</h3>
-        <div class="row wrapper-border d-flex flex-column flex-md-row">
+<section id="news" {!! post_class('container my-3') !!}>
+    <h3>News</h3>
+    
+    @while ($query->have_posts())
+        @php $query->the_post() @endphp
+
+        <article class="row wrapper-border d-flex flex-column flex-md-row">
             <div class="col-2 mb-md-1">
                 <small><time class="updated"
                         datetime="{{ get_post_time('c', true) }}">{{ get_the_date('m.d.y') }}</time></small>
@@ -28,6 +30,6 @@ $query = new WP_Query($latest_post_args);
                     @php the_content() @endphp
                 </div>
             </div>
-        </div>
-    </article>
-@endwhile
+        </article>
+    @endwhile
+</section>
