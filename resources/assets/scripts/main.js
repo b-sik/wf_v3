@@ -11,7 +11,7 @@ import home from './routes/home';
 import aboutUs from './routes/about';
 
 import { library, dom } from '@fortawesome/fontawesome-svg-core';
-import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft, faArrowRight, faBars } from '@fortawesome/free-solid-svg-icons';
 import {
   faSpotify,
   faApple,
@@ -28,7 +28,8 @@ library.add(
   faApple,
   faBandcamp,
   faFacebook,
-  faInstagram
+  faInstagram,
+  faBars
 );
 
 // tell FontAwesome to watch the DOM and add the SVGs when it detects icon markup

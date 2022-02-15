@@ -1,0 +1,8 @@
+.navbar-collapse,
+.navbar-nav {
+  height: 50vh;
+
+  .nav-item {
+    @extend .h2;
+  }
+}
