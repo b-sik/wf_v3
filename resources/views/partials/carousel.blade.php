@@ -1,10 +1,13 @@
 <div class="carousel slide d-none d-lg-block" data-interval="false" id="postsCarousel">
     <div class="container">
         <div class="row">
-            <div class="col-12 text-md-right lead">
-                <a class="btn btn-outline-secondary prev" href="" title="go back"><i
+            <div class="col-6">
+                <h3>Listen</h3>
+            </div>
+            <div class="col-6 text-md-right lead d-flex justify-content-end align-items-center">
+                <a class="btn btn-outline-primary prev" href="" title="go back"><i
                         class="fa-solid fa-arrow-left"></i></a>
-                <a class="btn btn-outline-secondary next" href="" title="more"><i class="fa-solid fa-arrow-right"></i></a>
+                <a class="btn btn-outline-primary next mr-3" href="" title="more"><i class="fa-solid fa-arrow-right"></i></a>
             </div>
         </div>
     </div>

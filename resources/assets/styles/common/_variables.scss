@@ -1,16 +1,42 @@
 /** Import Bootstrap functions */
 @import "~bootstrap/scss/functions";
 
-$theme-colors: (
-  primary: #525ddc,
-);
-
 /** Bootstrap navbar fix (https://git.io/fADqW) */
 $navbar-dark-toggler-icon-bg: none;
 $navbar-light-toggler-icon-bg: none;
 
-$body-bg: #495057;
-$body-color: #f8f9fa;
+$primary: #f7cb15;
+$secondary: #4cb5ae;
+$dark: #12131d;
+$light: #cedfd9;
+$info: #177e89;
+
+$body-bg: $dark;
+$body-color: $light;
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.h1.brand {
+  font-family: "Anonymous Pro", monospace !important;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.nav-item .nav-link {
+  text-transform: uppercase !important;
+  color: $dark !important;
+}
+
+.card {
+  background-color: $light !important;
+}
+
+h3 {
+  color: $info !important;
+  text-transform: lowercase !important;
+}
 
 h5,
 small {
@@ -20,4 +46,8 @@ small {
   > time {
     color: $body-color;
   }
+}
+
+.list-group-item {
+  background-color: $light !important;
 }

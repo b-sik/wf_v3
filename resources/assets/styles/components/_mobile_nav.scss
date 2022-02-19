@@ -1,8 +1,10 @@
-.navbar-collapse,
-.navbar-nav {
-  height: 50vh;
+.mobile-menu {
+  .navbar-collapse,
+  .navbar-nav {
+    min-height: 50vh;
 
-  .nav-item {
-    @extend .h2;
+    .nav-item {
+      @extend .h2;
+    }
   }
 }

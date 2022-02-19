@@ -6,7 +6,7 @@ $streaming_services = get_field('streaming_services', $home->ID);
 $footer_text = get_field('footer_text', $home->ID);
 @endphp
 
-<footer class="container-fluid bg-dark justify-content-center">
+<footer class="container-fluid bg-info justify-content-center">
     <div class="row py-5 mx-auto">
         <div class="col-12 col-lg-8 d-flex flex-column align-items-center align-items-lg-start justify-content-center order-2 order-lg-0">
             <small class='d-block'>&copy;&nbsp;{{ date('Y') }}</small>

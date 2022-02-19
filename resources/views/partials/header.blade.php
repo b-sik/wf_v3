@@ -29,11 +29,11 @@ $streaming_services = get_field('streaming_services', $home->ID);
 $socials = get_field('social_media', $home->ID);
 @endphp
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-info">
     <div class="container-fluid justify-content-center">
         <div class="row w-100">
             <div class="col-9 col-lg-4 d-flex align-items-center">
-                <a href="#" class="h1">{{ $band_name }}</a>
+                <a href="#" class="h1 brand">{{ $band_name }}</a>
             </div>
             <div class="col-4 d-none d-lg-flex align-items-center">
                 {!! wp_nav_menu($menu_args_desktop) !!}
