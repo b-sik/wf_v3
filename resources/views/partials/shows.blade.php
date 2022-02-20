@@ -41,7 +41,7 @@ $query = new WP_Query($shows_args);
                     <span class="date_time pb-1">{{ $date }}</span>
                     <span class="city pt-1">{{ $city }}</span>
                 </div>
-                <div class="col-4 pl-md-5 d-none d-sm-flex flex-column justify-content-center">
+                <div class="col-6 pl-md-5 d-none d-sm-flex flex-column justify-content-center">
                     <span class="venue pb-1">{{ $venue }}</span>
                     <span class="support pt-1">w/&nbsp;{{ $support }}</span>
                 </div>
@@ -51,8 +51,8 @@ $query = new WP_Query($shows_args);
                     <span class="venue">{{ $venue }}</span>
                     <span class="support">w/&nbsp;{{ $support }}</span>
                 </div>
-                <div class="col-4 d-flex flex-column justify-content-center align-items-end">
-                    <a class="event btn btn-primary" href='{{ $url }}' target="_blank"
+                <div class="col-4 col-lg-2 d-flex flex-column justify-content-center align-items-end">
+                    <a class="event btn btn-primary text-uppercase" href='{{ $url }}' target="_blank"
                         rel='noopener noreferrer'>Event</a>
                 </div>
             </div>

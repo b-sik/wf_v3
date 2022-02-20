@@ -222,3 +222,24 @@ function register_album_post_type()
     register_post_type('album', $args);
 }
 add_action('init', 'register_album_post_type', 0);
+
+// // Converts the Structure Tags in our permalink.
+// function post_type_link($url, $post)
+// {
+//     if ('show' === get_post_type($post)) {
+//         $show = get_field('show');
+//         $date = DateTime::createFromFormat("Ymd", $show['date']);
+
+//         $year = $date->format("Y");
+//         $month = $date->format("m");
+//         $day = $date->format("d");
+
+//         $url = str_replace("%year%", $year, $url);
+//         $url = str_replace("%month%", $month, $url);
+//         $url = str_replace("%day%", $day, $url);
+//         echo $url;
+//     }
+//     return $url;
+// }
+
+// add_filter('post_type_link', 'post_type_link', 10, 2);

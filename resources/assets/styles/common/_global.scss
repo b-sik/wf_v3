@@ -2,20 +2,62 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  font-family: "Roboto", sans-serif;
+}
+
 p {
   margin-bottom: 0 !important;
 }
 
-.vh-60 {
-  height: 60vh;
+caption {
+  font-size: 0.75rem;
 }
 
-.vh-lg-95 {
-  @include media-breakpoint-up(lg) {
-    height: 95vh;
+h3 {
+  color: $info !important;
+  text-transform: lowercase !important;
+}
+
+h5,
+small {
+  color: $body-bg;
+
+  > em,
+  > time {
+    color: $body-color;
   }
 }
 
-caption {
-  font-size: 0.75rem;
+.h1.brand {
+  font-family: "Anonymous Pro", monospace !important;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.nav-item .nav-link {
+  text-transform: uppercase !important;
+  color: $dark !important;
+
+  &:hover {
+    background-color: $primary;
+  }
+}
+
+.card:not(.about) {
+  background-color: $light !important;
+}
+
+.list-group-item {
+  background-color: $light !important;
+}
+
+.hero-height {
+  @include media-breakpoint-down(lg) {
+    height: 30vh;
+  }
+
+  @include media-breakpoint-up(lg) {
+    height: 60vh;
+  }
 }

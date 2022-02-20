@@ -1,4 +1,4 @@
-section.container {
+section.container:not(#news) {
   @extend .py-5;
 }
 

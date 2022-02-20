@@ -11,7 +11,7 @@ $latest_post_args = [
 $query = new WP_Query($latest_post_args);
 @endphp
 
-<section id="news" {!! post_class('container') !!}>
+<section id="news" {!! post_class('container pt-3') !!}>
     <h3>News</h3>
 
     @while ($query->have_posts())

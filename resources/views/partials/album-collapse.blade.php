@@ -1,5 +1,7 @@
 <div class="row justify-content-center d-lg-none">
-    <h3>Listen</h3>
+    <div class="container">
+        <h3>Listen</h3>
+    </div>
     
     <div class="col-12 col-md-9">
         <div class="card-deck flex-column">
@@ -16,7 +18,7 @@
         </div>
 
         <div class="w-100 d-flex justify-content-center">
-            <button class="btn btn-primary my-3" type="button" data-toggle="collapse" data-target="#collapseAlbums"
+            <button class="btn btn-primary my-3 text-uppercase" type="button" data-toggle="collapse" data-target="#collapseAlbums"
                 aria-expanded="false" aria-controls="collapseAlbums">
                 Show all
             </button>

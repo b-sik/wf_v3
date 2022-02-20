@@ -29,7 +29,7 @@ $streaming_services = get_field('streaming_services', $home->ID);
 $socials = get_field('social_media', $home->ID);
 @endphp
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-info">
+<nav class="navbar navbar-expand-lg navbar-dark bg-info px-0 px-lg-3">
     <div class="container-fluid justify-content-center">
         <div class="row w-100">
             <div class="col-9 col-lg-4 d-flex align-items-center">
@@ -38,15 +38,15 @@ $socials = get_field('social_media', $home->ID);
             <div class="col-4 d-none d-lg-flex align-items-center">
                 {!! wp_nav_menu($menu_args_desktop) !!}
             </div>
-            <div class="col-3 col-lg-4 d-lg-flex align-items-center">
+            <div class="col-3 col-lg-4 d-lg-flex align-items-center pr-0 pr-lg-3">
                 <div class="container d-none d-lg-flex justify-content-end">
                     <div class="row">
                         @include('partials.icon-group', ['icons' => $streaming_services, 'anchor_classes' => 'ml-2'])
                         @include('partials.icon-group', ['icons' => $socials, 'anchor_classes' => 'ml-2'])
                     </div>
                 </div>
-                <div class="container h-100 d-flex d-lg-none justify-content-end align-items-center">
-                    <button class="navbar-toggle btn btn-primary" type="button" data-toggle="collapse"
+                <div class="container h-100 d-flex d-lg-none align-items-center">
+                    <button class="navbar-toggle btn btn-primary ml-auto" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon d-flex align-items-center justify-content-center">
@@ -61,6 +61,6 @@ $socials = get_field('social_media', $home->ID);
         </div>
     </div>
 </nav>
-<header class="container-fluid vh-60 mb-3"
+<header class="container-fluid hero-height mb-3"
     style="background-image:url({{ $featured_img_url }});background-position:center;background-size:cover;">
 </header>

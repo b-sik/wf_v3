@@ -6,7 +6,7 @@ $contact = get_page_by_title('contact');
 $email = explode('@', get_field('email', $contact->ID));
 @endphp
 
-<section id="contact" class="container contact-wrapper my-5">
+<section id="contact" class="container contact-wrapper">
     <h3 class="text-center">Contact</h3>
 
     <div class="row">

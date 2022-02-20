@@ -1,7 +1,7 @@
 .mobile-menu {
   .navbar-collapse,
   .navbar-nav {
-    min-height: 50vh;
+    @extend .vh-100;
 
     .nav-item {
       @extend .h2;
