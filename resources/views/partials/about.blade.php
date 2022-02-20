@@ -23,8 +23,8 @@ $photo_2 = get_field('photo_2', $page->ID);
         </div>
 
         <div class="col-md-6 d-flex flex-column align-items-center justify-content-center ">
-            <div class="card about mb-4">
-                <div class="card-body text-center bg-light text-dark border border-secondary">
+            <div class="card about mb-4 border border-dark">
+                <div class="card-body text-center bg-dark text-light">
                     <p class="card-text">{!! $content !!}</p>
                 </div>
             </div>
