@@ -30,10 +30,10 @@ $photo_2 = get_field('photo_2', $page->ID);
             </div>
             <div class="card-deck">
                 <div class="card about bg-dark">
-                    <img class="card-img-top" src="{!! $photo_1 !!}" alt="Card image cap">
+                    <img class="card-img" src="{!! $photo_1 !!}" alt="Card image cap">
                 </div>
                 <div class="card about bg-dark">
-                    <img class="card-img-top" src="{!! $photo_2 !!}" alt="Card image cap">
+                    <img class="card-img" src="{!! $photo_2 !!}" alt="Card image cap">
                 </div>
             </div>
         </div>

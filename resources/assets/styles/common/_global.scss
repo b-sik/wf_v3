@@ -61,3 +61,12 @@ small {
     height: 60vh;
   }
 }
+
+.post-img {
+  &:hover {
+    @include media-breakpoint-up(lg) {
+      transform: scale(1.1);
+      transition: all 0.2s;
+    }
+  }
+}
