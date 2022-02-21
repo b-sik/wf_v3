@@ -45,11 +45,11 @@ small {
 }
 
 .card:not(.about) {
-  background-color: $light !important;
-}
+  background-color: $gray-100 !important;
 
-.list-group-item {
-  background-color: $light !important;
+  .list-group-item {
+    background-color: $gray-100 !important;
+  }
 }
 
 .hero-height {
