@@ -20,7 +20,7 @@ $query = new WP_Query($shows_args);
 @endphp
 
 <section id="shows" class="container shows-wrapper">
-    <h3>Shows</h3>
+    <h3>{{ __('Shows', 'westferry') }}</h3>
 
     @while ($query->have_posts())
         @php $query->the_post() @endphp
@@ -60,7 +60,7 @@ $query = new WP_Query($shows_args);
                 <div
                     class="col-12 col-sm-4 col-lg-2 d-flex py-3 py-sm-0 flex-column justify-content-center align-items-center align-items-sm-end">
                     <a class="event btn btn-primary text-uppercase" href='{{ $url }}' target="_blank"
-                        rel='noopener noreferrer'>Event</a>
+                        rel='noopener noreferrer'>{{ __('Event', 'westferry') }}</a>
                 </div>
             </div>
         </div>

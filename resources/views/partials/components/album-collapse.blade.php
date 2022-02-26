@@ -1,8 +1,8 @@
 <div class="row justify-content-center d-lg-none">
     <div class="container">
-        <h3>Listen</h3>
+        <h3>{{ __('Listen', 'westferry') }}</h3>
     </div>
-    
+
     <div class="col-12 col-md-9">
         <div class="card-deck flex-column">
             @while ($query->have_posts())
@@ -18,9 +18,9 @@
         </div>
 
         <div class="w-100 d-flex justify-content-center">
-            <button class="btn btn-primary my-3 text-uppercase" type="button" data-toggle="collapse" data-target="#collapseAlbums"
-                aria-expanded="false" aria-controls="collapseAlbums">
-                Show all
+            <button class="btn btn-primary my-3 text-uppercase" type="button" data-toggle="collapse"
+                data-target="#collapseAlbums" aria-expanded="false" aria-controls="collapseAlbums">
+                {{ __('Show all', 'westferry') }}
             </button>
         </div>
 

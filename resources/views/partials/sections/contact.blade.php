@@ -8,7 +8,7 @@ $email_exploded = explode('@', $email);
 @endphp
 
 <section id="contact" class="container contact-wrapper">
-    <h3 class="text-center">Contact</h3>
+    <h3 class="text-center">{{ __('Contact', 'westferry') }}</h3>
 
     <div class="row">
         <div class="col-12 d-flex justify-content-center">

@@ -2,12 +2,12 @@
     <div class="container">
         <div class="row">
             <div class="col-6">
-                <h3>Listen</h3>
+                <h3>{{ __('Listen', 'westferry') }}</h3>
             </div>
             <div class="col-6 text-md-right lead d-flex justify-content-end align-items-center">
-                <a class="btn btn-outline-primary prev" href="" title="go back"><i
-                        class="fa-solid fa-arrow-left"></i></a>
-                <a class="btn btn-outline-primary next mr-3" href="" title="more"><i class="fa-solid fa-arrow-right"></i></a>
+                <a class="btn btn-outline-primary prev" href="" title="go back"><i class="fa-solid fa-arrow-left"></i></a>
+                <a class="btn btn-outline-primary next mr-3" href="" title="more"><i
+                        class="fa-solid fa-arrow-right"></i></a>
             </div>
         </div>
     </div>
@@ -29,8 +29,7 @@
                         @endphp
 
                         @if ($current_post % 3 === 0)
-                            <div
-                                class="card-deck carousel-item {{ $current_post === 0 ? 'active' : '' }}">
+                            <div class="card-deck carousel-item {{ $current_post === 0 ? 'active' : '' }}">
                         @endif
 
                         @include('partials.components.album-card')
@@ -45,7 +44,6 @@
                     $card_count = 0;
                 @endphp
                 @endif
-
                 @endwhile
             </div>
         </div>
