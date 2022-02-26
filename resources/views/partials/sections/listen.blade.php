@@ -13,7 +13,7 @@ $query = new WP_Query($albums_args);
 
 <section id="listen" class="container listen-wrapper">
     {{-- desktop --}}
-    @include('partials.components.carousel')
+    @include('partials.components.album-carousel')
 
     {{-- mobile & tablet --}}
     @include('partials.components.album-collapse')

@@ -12,7 +12,7 @@
                     $total_posts = $query->found_posts;
                 @endphp
                 @if ($current_post < 2)
-                    @include('partials.components.card')
+                    @include('partials.components.album-card')
                 @endif
             @endwhile
         </div>
@@ -32,7 +32,7 @@
                     $total_posts = $query->found_posts;
                 @endphp
                 @if ($current_post >= 2)
-                    @include('partials.components.card')
+                    @include('partials.components.album-card')
                 @endif
             @endwhile
         </div>

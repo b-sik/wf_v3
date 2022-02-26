@@ -3,7 +3,8 @@ $home = get_page_by_title('home');
 $socials = get_field('social_media', $home->ID);
 
 $contact = get_page_by_title('contact');
-$email = explode('@', get_field('email', $contact->ID));
+$email = get_field('email', $contact->ID);
+$email_exploded = explode('@', $email);
 @endphp
 
 <section id="contact" class="container contact-wrapper">
@@ -11,9 +12,9 @@ $email = explode('@', get_field('email', $contact->ID));
 
     <div class="row">
         <div class="col-12 d-flex justify-content-center">
-            <a class="text-center btn btn-primary" href="mailto:westferrymusic@gmail.com">
-                <span class="d-inline-block h1">{{ $email[0] }}</span><span
-                    class="d-inline-block h1">&commat;{{ $email[1] }}</span>
+            <a class="text-center btn btn-primary" href="mailto:{{ $email }}">
+                <span class="d-inline-block h1">{{ $email_exploded[0] }}</span><span
+                    class="d-inline-block h1">&commat;{{ $email_exploded[1] }}</span>
             </a>
         </div>
     </div>

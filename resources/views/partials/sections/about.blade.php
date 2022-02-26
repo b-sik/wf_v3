@@ -1,11 +1,14 @@
 @php
 $page = get_page_by_title('about');
 $content = apply_filters('the_content', $page->post_content);
+
 $image = wp_get_attachment_image_src(get_post_thumbnail_id($page->ID), 'single-post-thumbnail');
 $caption = wp_get_attachment_caption(get_post_thumbnail_id($page->ID));
+$alt = get_post_meta(get_post_thumbnail_id($page->ID), '_wp_attachment_image_alt', true);
 
-$photo_1 = get_field('photo_1', $page->ID);
-$photo_2 = get_field('photo_2', $page->ID);
+$photos = get_field('photos', $page->ID);
+$photo_1 = $photos['photo_1'];
+$photo_2 = $photos['photo_2'];
 @endphp
 
 <section id="about" class="container about-wrapper">
@@ -14,7 +17,7 @@ $photo_2 = get_field('photo_2', $page->ID);
     <div class="row justify-content-center">
         <div class="col-md-6 d-flex flex-column align-items-center justify-content-center ">
             <div class="card m-4">
-                <img class="card-img" src="{{ $image[0] }}" alt="...">
+                <img class="card-img" src="{{ $image[0] }}" alt="{{ $alt }}"">
                 <div class="card-body">
                     <p class="card-text text-center"><small class="text muted">{{ $caption }}</small>
                     </p>
@@ -30,10 +33,10 @@ $photo_2 = get_field('photo_2', $page->ID);
             </div>
             <div class="card-deck">
                 <div class="card about bg-dark">
-                    <img class="card-img" src="{!! $photo_1 !!}" alt="Card image cap">
+                    <img class="card-img" src="{!! $photo_1['url'] !!}" alt="{{ $photo_1['alt'] }}">
                 </div>
                 <div class="card about bg-dark">
-                    <img class="card-img" src="{!! $photo_2 !!}" alt="Card image cap">
+                    <img class="card-img" src="{!! $photo_2['url'] !!}" alt="{{ $photo_2['alt'] }}">
                 </div>
             </div>
         </div>

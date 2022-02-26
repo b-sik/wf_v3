@@ -17,7 +17,13 @@ $query = new WP_Query($latest_post_args);
     @while ($query->have_posts())
         @php $query->the_post() @endphp
         @php
+            global $post;
+            
             $photo = get_the_post_thumbnail_url();
+            $alt = get_post_meta(get_post_thumbnail_id($post->ID), '_wp_attachment_image_alt', true);
+
+            $show_id = get_field('related_show');
+            $show_url = get_field('url', $show_id);
         @endphp
 
         <article class="row wrapper-border d-flex flex-column flex-md-row">
@@ -36,8 +42,8 @@ $query = new WP_Query($latest_post_args);
             </div>
             <div class="{{ $photo ? 'col-12 col-md-3 col-lg-2 d-flex align-items-center' : 'd-none' }}">
                 <div class="container-fluid h-100 d-flex justify-content-center align-items-center">
-                    <a href="https://www.facebook.com/events/511390720252570" target="_blank" rel="noopener noreferrer">
-                        <img src="{!! $photo !!}" alt="" class="post-img img-fluid border border-info rounded">
+                    <a href="{!! $show_url !!}" target="_blank" rel="noopener noreferrer">
+                        <img src="{!! $photo !!}" alt="{!! $alt !!}" class="post-img img-fluid border border-info rounded">
                     </a>
                 </div>
             </div>

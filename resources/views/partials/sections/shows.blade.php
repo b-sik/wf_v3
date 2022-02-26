@@ -26,13 +26,12 @@ $query = new WP_Query($shows_args);
         @php $query->the_post() @endphp
         @php
             $fields = get_fields();
-            $show = $fields['show'];
             
-            $city = $show['city'];
-            $venue = $show['venue'];
-            $date = date('m.d.y', strtotime($show['date']));
-            $support = $show['support'];
-            $url = $show['url'];
+            $city = $fields['city'];
+            $venue = $fields['venue'];
+            $date = date('m.d.y', strtotime($fields['date']));
+            $support = $fields['support'];
+            $url = $fields['url'];
         @endphp
 
         <div class="container show-wrapper wrapper-border-show">
