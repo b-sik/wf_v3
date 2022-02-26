@@ -41,8 +41,8 @@ $socials = get_field('social_media', $home->ID);
             <div class="col-3 col-lg-4 d-lg-flex align-items-center pr-0 pr-lg-3">
                 <div class="container d-none d-lg-flex justify-content-end">
                     <div class="row">
-                        @include('partials.icon-group', ['icons' => $streaming_services, 'anchor_classes' => 'ml-2'])
-                        @include('partials.icon-group', ['icons' => $socials, 'anchor_classes' => 'ml-2'])
+                        @include('partials.components.icon-group', ['icons' => $streaming_services, 'anchor_classes' => 'ml-2'])
+                        @include('partials.components.icon-group', ['icons' => $socials, 'anchor_classes' => 'ml-2'])
                     </div>
                 </div>
                 <div class="container h-100 d-flex d-lg-none align-items-center">

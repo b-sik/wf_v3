@@ -33,7 +33,7 @@
                                 class="card-deck carousel-item {{ $current_post === 0 ? 'active' : '' }}">
                         @endif
 
-                        @include('partials.card')
+                        @include('partials.components.card')
 
                         @php
                             $card_count++;

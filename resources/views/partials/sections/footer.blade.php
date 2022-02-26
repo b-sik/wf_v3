@@ -20,8 +20,9 @@ $icon_logo = get_site_icon_url();
         <div class="col-12 col-lg-5 pb-3 pb-lg-0 d-flex justify-self-lg-end align-items-center">
             <div class="container d-flex justify-content-center justify-content-lg-end">
                 <div class="row">
-                    @include('partials.icon-group', ['icons' => $streaming_services, 'anchor_classes' => 'ml-2'])
-                    @include('partials.icon-group', ['icons' => $socials, 'anchor_classes' => 'ml-2'])
+                    @include('partials.components.icon-group', ['icons' => $streaming_services, 'anchor_classes' =>
+                    'ml-2'])
+                    @include('partials.components.icon-group', ['icons' => $socials, 'anchor_classes' => 'ml-2'])
                 </div>
             </div>
         </div>
