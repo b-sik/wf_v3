@@ -16,11 +16,21 @@ $shows_args = [
     'order' => 'ASC',
 ];
 
+$contact = get_page_by_title('contact');
+$email = get_field('email', $contact->ID);
+
 $query = new WP_Query($shows_args);
 @endphp
 
 <section id="shows" class="container shows-wrapper">
     <h3>{{ __('Shows', 'westferry') }}</h3>
+
+    @if (!$query->have_posts())
+        <div class="container show-wrapper wrapper-border-show text-center">
+            <p class="my-3">No shows currently booked! Reach out to us at <a
+                    href='mailto:{{ $email }}'>{{ $email }}</a>.</p>
+        </div>
+    @endif
 
     @while ($query->have_posts())
         @php $query->the_post() @endphp
