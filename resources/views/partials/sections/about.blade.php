@@ -19,26 +19,27 @@ $photo_2 = $photos['photo_2'];
             <div class="card m-4">
                 <img class="card-img" src="{{ $image[0] }}" alt="{{ $alt }}"">
                 <div class=" card-body">
-                <p class="card-text text-center"><small class="text muted">{{ $caption }}</small>
-                </p>
+                    <p class="card-text text-center"><small class="text muted">{{ $caption }}</small>
+                    </p>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="col-md-6 d-flex flex-column align-items-center justify-content-center ">
-        <div class="card about mb-4 border border-dark">
-            <div class="card-body text-center bg-dark text-light">
-                <p class="card-text">{!! $content !!}</p>
+
+        <div class="col-md-6 d-flex flex-column align-items-center justify-content-center ">
+            <div class="card about mb-4 border border-dark">
+                <div class="card-body text-center bg-dark text-light">
+                    <p class="card-text">{!! $content !!}</p>
+                </div>
+            </div>
+            <div class="card-deck">
+                <div class="card about bg-dark">
+                    <img class="card-img" src="{!! $photo_1['url'] !!}" alt="{{ $photo_1['alt'] }}">
+                </div>
+                <div class="card about bg-dark">
+                    <img class="card-img" src="{!! $photo_2['url'] !!}" alt="{{ $photo_2['alt'] }}">
+                </div>
             </div>
         </div>
-        <div class="card-deck">
-            <div class="card about bg-dark">
-                <img class="card-img" src="{!! $photo_1['url'] !!}" alt="{{ $photo_1['alt'] }}">
-            </div>
-            <div class="card about bg-dark">
-                <img class="card-img" src="{!! $photo_2['url'] !!}" alt="{{ $photo_2['alt'] }}">
-            </div>
-        </div>
-    </div>
     </div>
 </section>
