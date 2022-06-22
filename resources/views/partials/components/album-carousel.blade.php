@@ -45,9 +45,9 @@
                 @endphp
                 @endif
                 @endwhile
-            </div>
-        </div>
-    </div>
-</div>
-</div>
-</div>
+            </div> <!-- .carousel-inner -->
+        </div> <!-- .col -->
+    </div> <!-- .row -->
+</div> <!-- .container -->
+</div> <!-- .carousel -->
+

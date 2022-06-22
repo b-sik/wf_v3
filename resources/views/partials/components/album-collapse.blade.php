@@ -35,6 +35,7 @@
                     @include('partials.components.album-card')
                 @endif
             @endwhile
-        </div>
-    </div>
-</div>
+        </div> <!-- #collapseAlbums -->
+    </div> <!-- .card-deck -->
+</div> <!-- .col -->
+</div> <!-- .row -->
