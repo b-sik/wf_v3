@@ -48,6 +48,7 @@
             </div> <!-- .carousel-inner -->
         </div> <!-- .col -->
     </div> <!-- .row -->
+</div>
 </div> <!-- .container -->
 </div> <!-- .carousel -->
 
