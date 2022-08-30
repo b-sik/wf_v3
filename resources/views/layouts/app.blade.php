@@ -8,7 +8,12 @@
     <div class="wrap container" role="document">
         <div class="content">
             <main class="main">
-                @yield('content')
+                @include('partials.sections.latest-post')
+                @include('partials.sections.featured-video')
+                @include('partials.sections.shows')
+                @include('partials.sections.listen')
+                @include('partials.sections.about')
+                @include('partials.sections.contact')
             </main>
         </div>
     </div>
