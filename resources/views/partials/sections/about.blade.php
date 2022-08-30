@@ -1,14 +1,15 @@
 @php
-$page = get_page_by_title('about');
+$page = get_page_by_title('About');
 $content = apply_filters('the_content', $page->post_content);
 
 $image = wp_get_attachment_image_src(get_post_thumbnail_id($page->ID), 'single-post-thumbnail');
 $caption = wp_get_attachment_caption(get_post_thumbnail_id($page->ID));
 $alt = get_post_meta(get_post_thumbnail_id($page->ID), '_wp_attachment_image_alt', true);
 
-$photos = get_field('photos', $page->ID);
-$photo_1 = $photos['photo_1'];
-$photo_2 = $photos['photo_2'];
+$fields = get_fields($page->ID);
+
+$photo_1 = $fields['photo_1'];
+$photo_2 = $fields['photo_2'];
 @endphp
 
 <section id="about" class="container about-wrapper">
@@ -25,7 +26,6 @@ $photo_2 = $photos['photo_2'];
             </div>
         </div>
 
-
         <div class="col-md-6 d-flex flex-column align-items-center justify-content-center ">
             <div class="card about mb-4 border border-dark">
                 <div class="card-body text-center bg-dark text-light">
@@ -34,10 +34,10 @@ $photo_2 = $photos['photo_2'];
             </div>
             <div class="card-deck">
                 <div class="card about bg-dark">
-                    <img class="card-img" src="{!! $photo_1['url'] !!}" alt="{{ $photo_1['alt'] }}">
+                    <img class="card-img" src="{!! $photo_1 !!}" alt="west ferry">
                 </div>
                 <div class="card about bg-dark">
-                    <img class="card-img" src="{!! $photo_2['url'] !!}" alt="{{ $photo_2['alt'] }}">
+                    <img class="card-img" src="{!! $photo_2 !!}" alt="west ferry">
                 </div>
             </div>
         </div>
