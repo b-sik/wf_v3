@@ -10,7 +10,6 @@ module.exports = {
   plugins: [
     new ImageminPlugin({
       optipng: { optimizationLevel: 2 },
-      gifsicle: { optimizationLevel: 3 },
       pngquant: { quality: '65-90', speed: 4 },
       svgo: {
         plugins: [
