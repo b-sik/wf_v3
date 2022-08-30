@@ -13,7 +13,7 @@ $artwork_url = get_the_post_thumbnail_url();
 
 <div class="card mb-3 mx-0 mx-sm-5 mx-md-auto">
     <div class="card-img-top">
-        <img class="img-fluid" src="{{ $artwork_url }}" alt="show flyer">
+        <img class="img-fluid" src="{{ $artwork_url }}" alt="show flyer" />
     </div>
 
     <div class="card-body pb-0">
