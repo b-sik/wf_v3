@@ -16,7 +16,7 @@ const assetsFilenames = (config.enabled.cacheBusting) ? config.cacheBusting : '[
 let webpackConfig = {
   context: config.paths.assets,
   entry: config.entry,
-  devtool: (config.enabled.sourceMaps ? '#source-map' : undefined),
+  devtool: false,
   output: {
     path: config.paths.dist,
     publicPath: config.publicPath,
@@ -187,9 +187,9 @@ let webpackConfig = {
 
 /* eslint-disable global-require */ /** Let's only load dependencies as needed */
 
-if (config.enabled.optimize) {
-  webpackConfig = merge(webpackConfig, require('./webpack.config.optimize'));
-}
+// if (config.enabled.optimize) {
+//   webpackConfig = merge(webpackConfig, require('./webpack.config.optimize'));
+// }
 
 if (config.env.production) {
   webpackConfig.plugins.push(new webpack.NoEmitOnErrorsPlugin());
